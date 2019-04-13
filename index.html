@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Carter+One"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>BeerBuddy || Find new beers</title>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html"
+        ><h1 class="logo">BeerBuddy <i class="fas fa-beer"></i></h1
+      ></a>
+    </nav>
+
+    <div class="container">
+      <div class="card card-form">
+        <h2 class="h-2">Let's find a new beer!</h2>
+
+        <br />
+
+        <form class="beer-form-hops">
+          <span class="text-bold">My favorite beers are:</span>
+          <br />
+          <ul>
+            <li>
+              <input
+                class="beer-type"
+                type="radio"
+                name="beer-type"
+                id="ale"
+                required="required"
+              />
+              <label for="ale">Ales</label>
+            </li>
+            <li>
+              <input class="beer-type" type="radio" name="beer-type" id="ipa" />
+              <label for="ipa">IPAs</label>
+            </li>
+            <li>
+              <input
+                class="beer-type"
+                type="radio"
+                name="beer-type"
+                id="pilsner"
+              />
+              <label for="pilsner">Pilsners</label>
+            </li>
+            <li>
+              <input
+                class="beer-type"
+                type="radio"
+                name="beer-type"
+                id="stout"
+              />
+              <!-- <label for="stout">Stouts</label>
+            </li>
+            <li>
+              <input
+                class="beer-type"
+                type="radio"
+                name="beer-type"
+                id="lager"
+              />
+              <label for="lager">Lagers</label>
+            </li>
+          </ul>
+        </form> -->
+        <br />
+
+        <form class="beer-form-abv">
+          <span class="text-bold">I prefer an ABV value of:</span>
+          <br />
+          <ul>
+            <li>
+              <input
+                class="abv"
+                type="radio"
+                name="abv"
+                id="low-abv"
+                required="required"
+              />
+              <label for="hoppy">Low (0-5%)</label>
+            </li>
+            <li>
+              <input class="abv" type="radio" name="abv" id="med-abv" />
+              <label for="med-hoppy">Mid (5-8%)</label>
+            </li>
+            <li>
+              <input class="abv" type="radio" name="abv" id="high-abv" />
+              <label for="not-hoppy">High (8% and higher)</label>
+            </li>
+          </ul>
+        </form>
+        <br />
+
+        <button class="btn btn-submit" type="submit">Beer me!</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
