@@ -31,7 +31,7 @@ function getABV(e) {
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 let endpoint =
-  "https://api.brewerydb.com/v2/beers/?key=def34c816c7aa962d9c92192486b300b";
+  "https://sandbox-api.brewerydb.com/v2/beers/?key=def34c816c7aa962d9c92192486b300b";
 
 class Beer {
   constructor() {}
@@ -39,11 +39,12 @@ class Beer {
   async getBeer() {
     const response = await fetch(proxyurl + endpoint);
 
-    const responseData = await response.json();
-    return responseData;
-
-    console.log(responseData);
-  }
+   
+      const responseData = await response.json();
+      return responseData;
+    
+      console.log(responseData);
+      }
 }
 
 const beer = new Beer();
@@ -80,14 +81,6 @@ function getBeer() {
       let highAbvPilsner = highAbv.filter(beer =>
         beer.name.includes("Pilsner")
       );
-      // Stouts
-      // let lowAbvStout = lowAbv.filter(beer => beer.name.includes("Stout"));
-      // let medAbvStout = medAbv.filter(beer => beer.name.includes("Stout"));
-      // let highAbvStout = highAbv.filter(beer => beer.name.includes("Stout"));
-      // // Lagers
-      // let lowAbvLager = lowAbv.filter(beer => beer.name.includes("Lager"));
-      // let medAbvLager = medAbv.filter(beer => beer.name.includes("Lager"));
-      // let highAbvLager = highAbv.filter(beer => beer.name.includes("Lager"));
 
       // Ales
       if (typeChoice === "ale" && abvChoice === "low-abv") {
@@ -125,38 +118,13 @@ function getBeer() {
           highAbvPilsner[Math.floor(Math.random() * highAbvPilsner.length)];
       }
 
-      // Stouts
-      // if (typeChoice === "stout" && abvChoice === "low-abv") {
-      //   beerSuggestion =
-      //     lowAbvStout[Math.floor(Math.random() * lowAbvStout.length)];
-      //   console.log(beerSuggestion);
-      // } else if (typeChoice === "stout" && abvChoice === "med-abv") {
-      //   beerSuggestion =
-      //     medAbvStout[Math.floor(Math.random() * medAbvStout.length)];
-      // } else if (typeChoice === "stout" && abvChoice === "high-abv") {
-      //   beerSuggestion =
-      //     highAbvStout[Math.floor(Math.random() * highAbvStout.length)];
-      // }
-
-      // // Lagers
-      // if (typeChoice === "lager" && abvChoice === "low-abv") {
-      //   beerSuggestion =
-      //     lowAbvLager[Math.floor(Math.random() * lowAbvLager.length)];
-      // } else if (typeChoice === "lager" && abvChoice === "med-abv") {
-      //   beerSuggestion =
-      //     medAbvLager[Math.floor(Math.random() * medAbvLager.length)];
-      // } else if (typeChoice === "lager" && abvChoice === "high-abv") {
-      //   beerSuggestion =
-      //     highAbvLager[Math.floor(Math.random() * highAbvLager.length)];
-      // }
-
       const resultBeer = document.createElement("div");
       resultBeer.className = "card";
 
       if (
-        beerSuggestion === undefined ||
+        beerSuggestion == undefined ||
         beerSuggestion.length == 0 ||
-        beerList === undefined
+        beerList == undefined
       ) {
         const errorResult = document.createElement("div");
         errorResult.className = "card";
@@ -165,6 +133,7 @@ function getBeer() {
           <a class="btn" href="index.html">Back to Home</a>
       `;
       } else {
+        console.log(beerList);
         card.innerHTML = `
           <h2 class="h-2">Check out this beer:</h2>
             <br/>
@@ -172,7 +141,7 @@ function getBeer() {
               <ul>
                 <li>${beerSuggestion.abv}% ABV</li>
               </ul>
-            <img src='img/individualbeer.png' style="float: right;"/>
+            <img src='${beerSuggestion.labels.medium}' style="float: right;"/>
               <p>${beerSuggestion.style.description}</p>
               <a class="btn" href="index.html">Try another combination!</a>`;
       }
@@ -184,7 +153,6 @@ function getBeer() {
       card.innerHTML = `
            <h2 class="h-2">Sorry, please try again.</h2>
            <a class="btn" href="index.html">Back to Home</a>`;
-      console.log(err);
     });
 }
 

@@ -13,6 +13,7 @@
 img {
   margin: 0.5rem;
   height: 150px;
+  border-radius: 50%;
 }
 
 a {
